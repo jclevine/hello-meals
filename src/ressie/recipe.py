@@ -4,11 +4,11 @@ from src.ressie.meal_type import MealType
 
 
 class Recipe(object):
-    def __init__(self, name, ingredients, servings=1, meal_type=MealType.ENTREE):
+    def __init__(self, name, ingredients, servings=1, type=MealType.ENTREE):
         self._name = name
         self._ingredients = ingredients
         self._servings = servings
-        self._meal_type = meal_type
+        self._type = type
 
     @property
     def name(self):
@@ -21,14 +21,14 @@ class Recipe(object):
                        for ingredient
                        in recipe_dict['ingredients']],
                       servings=recipe_dict['servings'],
-                      meal_type=MealType(recipe_dict['meal_type'])
+                      type=MealType(recipe_dict['type'])
                       )
 
     def to_dict(self):
         return {
             'name': self._name,
             'servings': self._servings,
-            'meal_type': self._meal_type.value,
+            'type': self._type.value,
             'ingredients': [ingredient.to_dict() for ingredient in self._ingredients]
         }
 

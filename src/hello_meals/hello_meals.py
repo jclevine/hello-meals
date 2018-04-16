@@ -1,4 +1,4 @@
-from src.meal_plans import meal_plan, MealType
+from src.hello_meals.meal_plans import meal_plan, MealType
 from src.pyllo.pyllo import Pyllo, LabelColor
 from calendar import day_name as weekday_names
 import calendar

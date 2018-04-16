@@ -1,7 +1,7 @@
 import logging
 import calendar
 from src.pyllo.pyllo import Pyllo
-from src.meal_plans import MealType
+from src.hello_meals.meal_plans import MealType
 
 
 def is_meal_slot(meal):

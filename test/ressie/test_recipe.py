@@ -2,6 +2,7 @@ from unittest import TestCase
 from src.ressie.recipe import Recipe
 from src.ressie.ingredient import Ingredient
 from src.ressie.unit import Unit as U
+from src.ressie.meal_type import MealType
 
 
 class TestRecipe(TestCase):
@@ -13,11 +14,12 @@ class TestRecipe(TestCase):
         Ingredient('bananas', 1, U.UNITS),
         Ingredient('apples', 1, U.UNITS),
         Ingredient('nuts', 15, U.GRAMS)
-    ], 2)
+    ], servings=2, meal_type=MealType.BREAKFAST)
 
     blue_apple_nut_oatmeal_dict = {
         'name': 'Blue Apple Nut Oatmeal',
         'servings': 2,
+        'meal_type': 'Breakfast',
         'ingredients': [
             {
                 'name': 'water',

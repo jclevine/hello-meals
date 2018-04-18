@@ -31,7 +31,7 @@ class TestTinyDBCookbook(TestCase):
     ], servings=3)
 
     def test_insert_and_retrieve_recipe(self):
-        db_path = os.path.join(os.getcwd(), 'db.json')
+        db_path = os.path.join(os.getcwd(), '..', '..', 'cookbook.db')
 
         with TinyDBCookbook.open(db_path) as db:
             cookbook = Cookbook(db)

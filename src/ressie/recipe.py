@@ -14,6 +14,18 @@ class Recipe(object):
     def name(self):
         return self._name
 
+    @property
+    def servings(self):
+        return self._servings
+
+    @property
+    def type(self):
+        return self._type
+
+    @property
+    def ingredients(self):
+        return self._ingredients
+
     @staticmethod
     def from_dict(recipe_dict):
         return Recipe(recipe_dict['name'],

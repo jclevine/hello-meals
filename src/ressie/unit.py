@@ -7,4 +7,7 @@ class Unit(Enum):
     TEASPOONS = 'teaspoons'
     UNITS = 'units'
     CUPS = 'cups'
+    TABLESPOONS = 'tablespoons'
+    OUNCES = 'ounces'
+    INCHES = 'inches'
 

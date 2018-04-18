@@ -8,4 +8,5 @@ class MealType(Enum):
     VEGGIES = 'Veggies'
     SIDES = 'Sides'
     SALAD = 'Salad'
+    SALAD_DRESSING = 'Salad Dressing'
 

@@ -32,6 +32,17 @@ class Pyllo(object):
                                  'defaultLists': 'false'
                              })
 
+    def create_board_from_template(self, name, template_name):
+        return json.loads(requests.post(self.URL_BASE.format('/boards'),
+                          params={
+                              'name': name,
+                              'idBoardSource': self.get_board_id(template_name),
+                              'key': self.key,
+                              'token': self.token,
+                              'defaultLists': 'false',
+                              'defaultLabels': 'false'
+                          }).text)['id']
+
     def create_list(self, board_id, name, index):
         return requests.post(self.URL_BASE.format('/boards/{}/lists?name={}').format(board_id, name),
                              params={
@@ -61,6 +72,15 @@ class Pyllo(object):
                                  'idBoard': board_id
                              })
 
+    def get_labels(self, board_id):
+        labels = json.loads(requests.get(self.URL_BASE.format('/boards/{}/labels'.format(board_id)),
+                                         params={
+                                             'key': self.key,
+                                             'token': self.token,
+                                             'fields': 'name'
+                                         }).text)
+        return {label['name']: label['id'] for label in labels}
+
     def remove_labels(self, card_id):
         labels = json.loads(requests.get(self.URL_BASE.format('/cards/{}/labels'.format(card_id)),
                             params={
@@ -84,6 +104,22 @@ class Pyllo(object):
                                            }).text)
 
         return [board['lists'] for board in response if board['name'] == board_name][0]
+
+    def get_list_id(self, board_id, list_name):
+        response = json.loads(requests.get(self.URL_BASE.format('/boards/{}/lists?fields=id,name'.format(board_id)),
+                                           params={
+                                               'key': self.key,
+                                               'token': self.token
+                                           }).text)
+        return [a_list['id'] for a_list in response if a_list['name'] == list_name]
+
+    def get_board_id(self, name):
+        response = json.loads(requests.get(self.URL_BASE.format('/members/me/boards?fields=id,name'),
+                                           params={
+                                               'key': self.key,
+                                               'token': self.token
+                                           }).text)
+        return [board['id'] for board in response if board['name'] == name][0]
 
     def get_cards(self, list_id):
         return json.loads(

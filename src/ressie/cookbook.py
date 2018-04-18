@@ -6,7 +6,7 @@ class Cookbook(object):
         self._db = db
 
     def add_recipes(self, recipes):
-        [self._db.insert(recipe.to_dict()) for recipe in recipes]
+        [self._db.upsert(recipe.to_dict()) for recipe in recipes]
 
     def get_recipe(self, recipe_name):
         return Recipe.from_dict(self._db.retrieve(recipe_name))

@@ -60,7 +60,7 @@ recipes = [
     Recipe('Quick Breakfast Quinoa', [
         Ingredient(I.QUINOA, 1, U.CUPS),
         Ingredient(I.WATER, 474, U.MILLILITRES),
-        Ingredient(I.APPLE, 1, U.UNITS),
+        Ingredient(I.APPLES, 1, U.UNITS),
         Ingredient(I.NUTS, 67, U.GRAMS),
         Ingredient(I.BERRIES, 115, U.GRAMS),
         Ingredient(I.DATES, 62, U.GRAMS),
@@ -84,7 +84,7 @@ recipes = [
         Ingredient(I.BANANAS, 1, U.UNITS),
         Ingredient(I.MILK, 119, U.MILLILITRES),
         Ingredient(I.BERRIES, 0.5, U.CUPS),
-        Ingredient(I.NUTS, 0.25, U.NUTS),
+        Ingredient(I.NUTS, 0.25, U.CUPS),
         Ingredient(I.FLAXSEEDS, 0.5, U.TABLESPOONS)
     ],
            servings=1,
@@ -114,7 +114,7 @@ recipes = [
     Recipe('Creamy Breakfast Broccoli', [
         Ingredient(I.BROCCOLI, 1, U.UNITS),
         Ingredient(I.LEEKS, 1, U.UNITS),
-        Ingredient(I.AVOCADO, 1, U.UNITS),
+        Ingredient(I.AVOCADOS, 1, U.UNITS),
         Ingredient(I.BLACK_PEPPER, 0.25, U.TEASPOONS)
     ],
            servings=2,
@@ -174,12 +174,12 @@ recipes = [
         Ingredient(I.BEANS_BLACK, 15, U.OUNCES),
         Ingredient(I.TOMATOES_PLUM, 3, U.UNITS),
         Ingredient(I.CORN, 0.75, U.CUPS),
-        Ingredient(I.PEPPERS_RED, 0.25, U.CUPS),
+        Ingredient(I.PEPPERS, 0.25, U.CUPS),
         Ingredient(I.ONIONS_RED, 0.25, U.CUPS),
         Ingredient(I.CILANTRO, 2, U.TABLESPOONS),
         Ingredient(I.PEPPERS_JALEPENO, 1, U.UNITS),
         Ingredient(I.VINEGAR_RED_WINE, 30, U.MILLILITRES),
-        Ingredient(I.LIME, 0.5, U.UNITS),
+        Ingredient(I.LIMES, 0.5, U.UNITS),
         Ingredient(I.CUMIN, 0.25, U.TEASPOONS),
         Ingredient(I.AVOCADOS, 2, U.UNITS)
     ],
@@ -195,7 +195,7 @@ recipes = [
         Ingredient(I.CILANTRO, 12, U.GRAMS),
         Ingredient(I.JUICE_LIME, 30, U.MILLILITRES),
         Ingredient(I.CUMIN, 0.25, U.TEASPOONS),
-        Ingredient(I.PEPPER_BLACK, 0.25, U.TEASPOONS)
+        Ingredient(I.BLACK_PEPPER, 0.25, U.TEASPOONS)
     ],
            servings=4,
            type=MealType.SIDES
@@ -215,7 +215,7 @@ recipes = [
            ),
 
     Recipe('Buenas Noches Black Bean Soup', [
-        Ingredient(I.ONION, 1, U.UNITS),
+        Ingredient(I.ONIONS, 1, U.UNITS),
         Ingredient(I.CELERY, 2, U.CUPS),
         Ingredient(I.CARROTS, 2, U.CUPS),
         Ingredient(I.GARLIC, 4, U.UNITS),
@@ -389,6 +389,6 @@ recipes = [
 if __name__ == '__main__':
     db_path = os.path.join(os.getcwd(), 'cookbook.tinydb')
 
-    with TinyDBCookbook.open(db_path) as db:
+    with TinyDBCookbook(db_path) as db:
         cookbook = Cookbook(db)
-    cookbook.add_recipes(recipes)
+        cookbook.add_recipes(recipes)

@@ -11,7 +11,7 @@ class Ingredient(object):
 
     def to_dict(self):
         return {
-            'name': self._name,
+            'name': self._name.value,
             'amount': self._amount,
             'unit': self._unit.value
         }

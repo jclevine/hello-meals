@@ -75,15 +75,17 @@ class HelloMeals(object):
             logging.info('Meal Type Label %s = %s', meal_type, meal_type_to_color_id[meal_type])
         return meal_type_to_color_id
 
-    def create_meal_plan(self, a_meal_plan, tqdm_out, template='Meal Plan Template'):
+    def create_meal_plan(self, a_meal_plan, tqdm_out, template='Meal Plan Template - BLE'):
         meal_plan_id = self.pyllo.create_board_from_template(a_meal_plan.name, template)
         meal_list_id = self.pyllo.get_list_id(meal_plan_id, 'Meals')
         meal_labels = self.pyllo.get_labels(meal_plan_id)
         for meal in tqdm(a_meal_plan.meals, file=tqdm_out, unit='meal'):
             for _ in tqdm(range(meal.servings), file=tqdm_out, unit='serving'):
+            # for _ in tqdm(range(meal['servings']), file=tqdm_out, unit='serving'):
                 self.pyllo.create_card(
                     meal_list_id,
-                    '{}'.format(meal.name), meal_labels[meal.type.value]
+                    '{}'.format(meal.name), meal_labels[meal.meal_type.value]
+                    # '{}'.format(meal['name']), meal_labels[meal['type'].value]
                 )
 
 
@@ -97,10 +99,14 @@ if __name__ == '__main__':
     pyllo = Pyllo(key='',
                   token='')
 
-    with TinyDBCookbook.open(os.path.join(os.getcwd(), 'cookbook.tinydb')) as tinydb_cookbook:
-        cookbook = Cookbook(tinydb_cookbook)
-        meal_plan = MealPlan('Weeee!', cookbook, [
-            'Blue Apple Nut Oatmeal', 'Cinnamon-Spiced Baked Oatmeal'
-        ])
+    # tinyDbCookbook = TinyDBCookbook(os.path.join(os.getcwd(), 'cookbook.tinydb'))
+    # with tinyDbCookbook.open() as tinydb_cookbook:
+    #     cookbook = Cookbook(tinydb_cookbook)
+        # meal_plan = MealPlan('Weeee!', cookbook, [
+        #     'Blue Apple Nut Oatmeal', 'Cinnamon-Spiced Baked Oatmeal'
+        # ])
     hello_meals = HelloMeals(pyllo)
-    hello_meals.create_meal_plan(meal_plan, tqdm_log)
+    from src.hello_meals.meal_plans_andrea import meal_plan
+    a_meal_plan = MealPlan('BLE - Week 2 - Andrea', meal_plan, [])
+    a_meal_plan._meals = meal_plan['meals']
+    hello_meals.create_meal_plan(a_meal_plan, tqdm_log)

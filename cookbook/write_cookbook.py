@@ -8,8 +8,8 @@ from src.ressie.ingredients import Ingredients as I
 import os
 
 recipes = [
-    Recipe('Blue Apple Nut Oatmeal', [
-        Ingredient(I.WATER, 1.5, U.CUPS),
+    Recipe('Kale & White Bean Soup', [
+        Ingredient(I.BROTH, 1.5, U.CUPS),
         Ingredient(I.OATS, 30, U.GRAMS),
         Ingredient(I.RAISINS, 20, U.GRAMS),
         Ingredient(I.BERRIES, 120, U.GRAMS),
@@ -18,7 +18,7 @@ recipes = [
         Ingredient(I.NUTS, 15, U.GRAMS)
     ],
            servings=2,
-           type=MealType.BREAKFAST
+           meal_type=MealType.BREAKFAST
            ),
     Recipe('Cinnamon-Spiced Baked Oatmeal', [
         Ingredient(I.OATS, 100, U.GRAMS),
@@ -32,7 +32,7 @@ recipes = [
         Ingredient(I.BERRIES, 0.5, U.CUPS)
     ],
            servings=3,
-           type=MealType.BREAKFAST
+           meal_type=MealType.BREAKFAST
            ),
     Recipe('No-Cook strawberry Oatmeal To-Go', [
         Ingredient(I.OATS, 33, U.GRAMS),
@@ -42,7 +42,7 @@ recipes = [
         Ingredient(I.NUTS, 6, U.UNITS)
     ],
            servings=1,
-           type=MealType.BREAKFAST
+           meal_type=MealType.BREAKFAST
            ),
     Recipe('Creamy Buckwheat Porridge', [
         Ingredient(I.BUCKWHEAT, 1, U.CUPS),
@@ -55,7 +55,7 @@ recipes = [
         Ingredient(I.FRUIT, 0.5, U.CUPS)
     ],
            servings=3,
-           type=MealType.BREAKFAST
+           meal_type=MealType.BREAKFAST
            ),
     Recipe('Quick Breakfast Quinoa', [
         Ingredient(I.QUINOA, 1, U.CUPS),
@@ -68,7 +68,7 @@ recipes = [
         Ingredient(I.MILK, 119, U.MILLILITRES)
     ],
            servings=4,
-           type=MealType.BREAKFAST
+           meal_type=MealType.BREAKFAST
            ),
     Recipe('Chia Seed Breakfast Pudding', [
         Ingredient(I.MILK, 119, U.MILLILITRES),
@@ -78,7 +78,7 @@ recipes = [
         Ingredient(I.BERRIES, 0.5, U.CUPS)
     ],
            servings=1,
-           type=MealType.BREAKFAST
+           meal_type=MealType.BREAKFAST
            ),
     Recipe('Quick Banana Walnut Breakfast', [
         Ingredient(I.BANANAS, 1, U.UNITS),
@@ -88,14 +88,14 @@ recipes = [
         Ingredient(I.FLAXSEEDS, 0.5, U.TABLESPOONS)
     ],
            servings=1,
-           type=MealType.BREAKFAST
+           meal_type=MealType.BREAKFAST
            ),
     Recipe('Fruity Chickpea Cereal', [
         Ingredient(I.CHICKPEAS, 1.5, U.CUPS),
         Ingredient(I.BANANAS, 2, U.UNITS)
     ],
            servings=2,
-           type=MealType.BREAKFAST
+           meal_type=MealType.BREAKFAST
            ),
     Recipe('Tofu Scramble with Tomatoes and Peppers', [
         Ingredient(I.PEPPERS, 1, U.CUPS),
@@ -109,7 +109,7 @@ recipes = [
         Ingredient(I.RED_PEPPER_FLAKES, 0.25, U.TEASPOONS),
     ],
            servings=2,
-           type=MealType.BREAKFAST
+           meal_type=MealType.BREAKFAST
            ),
     Recipe('Creamy Breakfast Broccoli', [
         Ingredient(I.BROCCOLI, 1, U.UNITS),
@@ -118,7 +118,7 @@ recipes = [
         Ingredient(I.BLACK_PEPPER, 0.25, U.TEASPOONS)
     ],
            servings=2,
-           type=MealType.BREAKFAST
+           meal_type=MealType.BREAKFAST
            ),
 
     Recipe('Ginger Almond Dressing', [
@@ -131,7 +131,7 @@ recipes = [
         Ingredient(I.GINGER, 0.5, U.INCHES)
     ],
            servings=3,
-           type=MealType.SALAD_DRESSING
+           meal_type=MealType.SALAD_DRESSING
            ),
     Recipe('Easy Balsamic Almond Dressing', [
         Ingredient(I.WATER, 2, U.TABLESPOONS),
@@ -143,7 +143,7 @@ recipes = [
         Ingredient(I.BASIL_DRIED, 0.125, U.TEASPOONS)
     ],
            servings=1,
-           type=MealType.SALAD_DRESSING
+           meal_type=MealType.SALAD_DRESSING
            ),
     Recipe('Banana Walnut Dressing', [
         Ingredient(I.BANANAS, 2, U.UNITS),
@@ -155,7 +155,7 @@ recipes = [
         Ingredient(I.BASIL_DRIED, 0.125, U.TEASPOONS)
     ],
            servings=2,
-           type=MealType.SALAD_DRESSING
+           meal_type=MealType.SALAD_DRESSING
            ),
     Recipe('Balsamic Tomato and Asparagus Salad', [
         Ingredient(I.ASPARAGUS, 454, U.GRAMS),
@@ -168,7 +168,7 @@ recipes = [
         Ingredient(I.NUTS_PINE, 3, U.TABLESPOONS)
     ],
            servings=4,
-           type=MealType.SALAD
+           meal_type=MealType.SALAD
            ),
     Recipe('Black Bean and Avocado Salad', [
         Ingredient(I.BEANS_BLACK, 15, U.OUNCES),
@@ -184,7 +184,7 @@ recipes = [
         Ingredient(I.AVOCADOS, 2, U.UNITS)
     ],
            servings=4,
-           type=MealType.SALAD
+           meal_type=MealType.SALAD
            ),
 
     Recipe('Back-to-Basics Guacamole', [
@@ -198,7 +198,7 @@ recipes = [
         Ingredient(I.BLACK_PEPPER, 0.25, U.TEASPOONS)
     ],
            servings=4,
-           type=MealType.SIDES
+           meal_type=MealType.SIDES
            ),
     Recipe('Perfect Pesto', [
         Ingredient(I.NUTS, 110, U.GRAMS),
@@ -211,7 +211,7 @@ recipes = [
         Ingredient(I.TOMATOES, 80, U.GRAMS)
     ],
            servings=6,
-           type=MealType.SIDES
+           meal_type=MealType.SIDES
            ),
 
     Recipe('Buenas Noches Black Bean Soup', [
@@ -230,7 +230,7 @@ recipes = [
         Ingredient(I.TOMATOES_DICED, 1.5, U.CUPS)
     ],
            servings=6,
-           type=MealType.ENTREE
+           meal_type=MealType.ENTREE
            ),
     Recipe('Easy Split Pea Stew', [
         Ingredient(I.SPLIT_PEAS, 453, U.GRAMS),
@@ -247,7 +247,7 @@ recipes = [
         Ingredient(I.VINEGAR_SHERRY, 30, U.MILLILITRES)
     ],
            servings=6,
-           type=MealType.ENTREE
+           meal_type=MealType.ENTREE
            ),
 
     Recipe('Easy Ratatouille', [
@@ -261,7 +261,7 @@ recipes = [
         Ingredient(I.ROSEMARY_DRIED, 0.5, U.TEASPOONS)
     ],
            servings=4,
-           type=MealType.ENTREE
+           meal_type=MealType.ENTREE
            ),
     Recipe('Baked Kale and Cabbage Casserole', [
         Ingredient(I.ONIONS, 2, U.UNITS),
@@ -279,7 +279,7 @@ recipes = [
         Ingredient(I.ALMONDS, 0.5, U.CUPS)
     ],
            servings=6,
-           type=MealType.ENTREE
+           meal_type=MealType.ENTREE
            ),
     Recipe('Creamy Barley Risotto with Tomatoes and Peas', [
         Ingredient(I.ONIONS, 1, U.UNITS),
@@ -295,7 +295,7 @@ recipes = [
         Ingredient(I.PEAS, 1, U.CUPS)
     ],
            servings=4,
-           type=MealType.ENTREE
+           meal_type=MealType.ENTREE
            ),
     Recipe('Farro with Black Beans and Fresh Herbs', [
         Ingredient(I.FARRO, 1, U.CUPS),
@@ -310,7 +310,7 @@ recipes = [
         Ingredient(I.CUMIN, 0.25, U.TEASPOONS)
     ],
            servings=4,
-           type=MealType.ENTREE
+           meal_type=MealType.ENTREE
            ),
 
     Recipe('Chickpea Burgers', [
@@ -328,7 +328,7 @@ recipes = [
         Ingredient(I.GREENS, 3, U.OUNCES)
     ],
            servings=3,
-           type=MealType.ENTREE
+           meal_type=MealType.ENTREE
            ),
     Recipe('Tofu Pizza Bites', [
         Ingredient(I.TOFU_FIRM, 12, U.OUNCES),
@@ -338,51 +338,51 @@ recipes = [
         Ingredient(I.ONION_POWDER, 1, U.TEASPOONS)
     ],
            servings=2,
-           type=MealType.ENTREE
+           meal_type=MealType.ENTREE
            ),
 
     Recipe('Peppers', [
         Ingredient(I.PEPPERS, 3, U.UNITS)
     ],
            servings=3,
-           type=MealType.VEGGIES
+           meal_type=MealType.VEGGIES
            ),
     Recipe('Carrots', [
         Ingredient(I.CARROTS, 3, U.UNITS)
     ],
            servings=3,
-           type=MealType.VEGGIES
+           meal_type=MealType.VEGGIES
            ),
     Recipe('Cucumbers', [
         Ingredient(I.CUCUMBERS, 1, U.UNITS)
     ],
            servings=4,
-           type=MealType.VEGGIES
+           meal_type=MealType.VEGGIES
            ),
 
     Recipe('Strawberries', [
         Ingredient(I.STRAWBERRIES, 900, U.GRAMS)
     ],
            servings=5,
-           type=MealType.FRUIT
+           meal_type=MealType.FRUIT
            ),
     Recipe('Pears', [
         Ingredient(I.PEARS, 3, U.UNITS)
     ],
            servings=3,
-           type=MealType.FRUIT
+           meal_type=MealType.FRUIT
            ),
     Recipe('Grapes', [
         Ingredient(I.GRAPES, 1, U.UNITS)
     ],
            servings=5,
-           type=MealType.FRUIT
+           meal_type=MealType.FRUIT
            ),
     Recipe('Apples', [
         Ingredient(I.APPLES, 3, U.UNITS)
     ],
            servings=3,
-           type=MealType.FRUIT
+           meal_type=MealType.FRUIT
            )
 ]
 

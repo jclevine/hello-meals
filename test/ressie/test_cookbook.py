@@ -33,8 +33,8 @@ class TestCookbook(TestCase):
         mock_db = MagicMock()
         cookbook = Cookbook(mock_db)
         cookbook.add_recipes([TestCookbook.blue_apple_nut_oatmeal, TestCookbook.cinnamon_spied_baked_oatmeal])
-        self.assertDictEqual(TestCookbook.blue_apple_nut_oatmeal.to_dict(), mock_db.insert.call_args_list[0][0][0])
-        self.assertDictEqual(TestCookbook.cinnamon_spied_baked_oatmeal.to_dict(), mock_db.insert.call_args_list[1][0][0])
+        self.assertDictEqual(TestCookbook.blue_apple_nut_oatmeal.to_dict(), mock_db.upsert.call_args_list[0][0][0])
+        self.assertDictEqual(TestCookbook.cinnamon_spied_baked_oatmeal.to_dict(), mock_db.upsert.call_args_list[1][0][0])
 
     def test_retrieve_recipe(self):
         mock_db = MagicMock()

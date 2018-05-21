@@ -11,35 +11,28 @@ class MealType(Enum):
 
 
 meal_plan = {
-    'meal_plan_name': 'Justin - BLE - Week 2',
+    'meal_plan_name': 'Andrea - BLE - Week 2',
     'meals': [
         # Breakfasts
         {
-            'name': 'Burrito Breakfast Bake',
-            'type': MealType.BREAKFAST,
-            'servings': 2
-        },
-
-
-        {
             'name': 'Cereal',
             'type': MealType.BREAKFAST,
-            'servings': 2
+            'servings': 4
         },
         {
             'name': 'Milk - 4oz',
             'type': MealType.SIDES,
-            'servings': 2
+            'servings': 4
         },
         {
             'name': 'Nuts/Seeds - 1oz',
             'type': MealType.SIDES,
-            'servings': 2,
+            'servings': 4,
         },
         {
             'name': 'Fruit - 6oz',
             'type': MealType.FRUIT,
-            'servings': 2
+            'servings': 4
         },
 
 
@@ -48,22 +41,22 @@ meal_plan = {
         {
             'name': 'Black Bean Burger',
             'type': MealType.ENTREE,
-            'servings': 3
+            'servings': 2
         },
         {
             'name': 'Greens - 1oz',
             'type': MealType.VEGGIES,
-            'servings': 3
+            'servings': 2
         },
         {
             'name': 'Fruit - 6oz',
             'type': MealType.FRUIT,
-            'servings': 3
+            'servings': 2
         },
         {
             'name': 'Peppers|Cauli - 4oz',
             'type': MealType.VEGGIES,
-            'servings': 3
+            'servings': 2
         },
 
 
@@ -83,24 +76,24 @@ meal_plan = {
         {
             'name': 'Fruit - 5oz/7oz',
             'type': MealType.FRUIT,
-            'servings': 1
+            'servings': 2
         },
         {
-            'name': 'Nut Butter - 1oz',
+            'name': 'Nut Butter - 0.5oz',
             'type': MealType.SIDES,
-            'servings': 1
+            'servings': 2
         },
         {
-            'name': 'Nuts/Seeds - 1.5oz',
+            'name': 'Olives - 2oz',
             'type': MealType.SIDES,
-            'servings': 1
+            'servings': 2
         },
 
 
         {
             'name': 'Taco Salad',
             'type': MealType.ENTREE,
-            'servings': 1
+            'servings': 2
         },
         {
             'name': 'Hummus - 3oz',
@@ -108,14 +101,14 @@ meal_plan = {
             'servings': 2
         },
         {
-            'name': 'Nuts/Seeds - 0.25oz',
+            'name': 'Olives - 1oz',
             'type': MealType.SIDES,
             'servings': 2
         },
         {
             'name': 'Carrots/Peppers - 4.5oz',
             'type': MealType.VEGGIES,
-            'servings': 1
+            'servings': 2
         }
     ]
 }

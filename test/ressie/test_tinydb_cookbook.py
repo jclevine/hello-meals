@@ -30,11 +30,11 @@ class TestTinyDBCookbook(TestCase):
         Ingredient('berries', 0.5, U.CUPS)
     ], servings=3)
 
-    def test_insert_and_retrieve_recipe(self):
-        db_path = os.path.join(os.getcwd(), '..', '..', 'cookbook.db')
+    def test_upsert_and_retrieve_recipe(self):
+        db_path = os.path.join(os.getcwd(), 'test_cookbook.db')
 
-        with TinyDBCookbook.open(db_path) as db:
-            cookbook = Cookbook(db)
-            cookbook.add_recipes([self.blue_apple_nut_oatmeal, self.cinnamon_spied_baked_oatmeal])
-            actual = cookbook.get_recipe('Blue Apple Nut Oatmeal')
-            self.assertEqual(self.blue_apple_nut_oatmeal, actual)
+        cookbook = TinyDBCookbook(db_path)
+        with cookbook.open() as cookbook:
+            cookbook.upsert(self.blue_apple_nut_oatmeal)
+            actual = cookbook.retrieve('Blue Apple Nut Oatmeal')
+            self.assertEqual(self.blue_apple_nut_oatmeal.to_dict(), actual)

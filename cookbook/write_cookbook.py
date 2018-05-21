@@ -9,16 +9,36 @@ import os
 
 recipes = [
     Recipe('Kale & White Bean Soup', [
-        Ingredient(I.BROTH, 1.5, U.CUPS),
-        Ingredient(I.OATS, 30, U.GRAMS),
-        Ingredient(I.RAISINS, 20, U.GRAMS),
-        Ingredient(I.BERRIES, 120, U.GRAMS),
-        Ingredient(I.BANANAS, 1, U.UNITS),
-        Ingredient(I.APPLES, 1, U.UNITS),
-        Ingredient(I.NUTS, 15, U.GRAMS)
+        Ingredient(I.BROTH, 6, U.CUPS),
+        Ingredient(I.ONIONS_RED, 12, U.OUNCES),
+        Ingredient(I.GARLIC, 4, U.UNITS),
+        Ingredient(I.POTATOES_SWEET, 4, U.OUNCES),
+        Ingredient(I.KALE, 12, U.OUNCES),
+        Ingredient(I.RED_PEPPER_FLAKES, 0.25, U.TEASPOONS),
+        Ingredient(I.BAY_LEAVES, 2, U.UNITS),
+        Ingredient(I.BEANS_BLACK, 16, U.OUNCES),
+        Ingredient(I.MISO, 1, U.TEASPOONS),
+        Ingredient(I.NUTRITIONAL_YEAST, 2, U.TABLESPOONS),
+        Ingredient(I.PARSLEY, 2, U.TABLESPOONS),
+        Ingredient(I.OREGANO, 0.5, U.TEASPOONS),
+        Ingredient(I.SAVORY_SPICE_BLEND, 2, U.TEASPOONS)
     ],
-           servings=2,
-           meal_type=MealType.BREAKFAST
+           servings=4,
+           meal_type=MealType.ENTREE
+           ),
+    Recipe('Miso Soup with Kale & Dulse', [
+        Ingredient(I.DULSE, 3, U.TABLESPOONS),
+        Ingredient(I.BROTH, 50, U.GRAMS),
+        Ingredient(I.EDAMAME, 5, U.OUNCES),
+        Ingredient(I.MUSHROOMS_SHIITAKE, 4, U.OUNCES),
+        Ingredient(I.TOFU_FIRM, 4, U.OUNCES),
+        Ingredient(I.GREEN_ONIONS, 1, U.OUNCES),
+        Ingredient(I.MISO, 158, U.MILLILITRES),
+        Ingredient(I.KALE, 1, U.TEASPOONS),
+        Ingredient(I.SAVORY_SPICE_BLEND, 2, U.TEASPOONS)
+    ],
+           servings=4,
+           meal_type=MealType.ENTREE
            ),
     Recipe('Cinnamon-Spiced Baked Oatmeal', [
         Ingredient(I.OATS, 100, U.GRAMS),
@@ -31,9 +51,42 @@ recipes = [
         Ingredient(I.CINNAMON, 1, U.TEASPOONS),
         Ingredient(I.BERRIES, 0.5, U.CUPS)
     ],
-           servings=3,
+            servings=3,
+            meal_type=MealType.BREAKFAST
+            ),
+    Recipe('Creamy Buckwheat Porridge', [
+        Ingredient(I.BUCKWHEAT, 1, U.CUPS),
+        Ingredient(I.DATES, 2, U.UNITS),
+        Ingredient(I.MILK, 3, U.TABLESPOONS),
+        Ingredient(I.VANILLA_EXTRACT, 1, U.TEASPOONS),
+        Ingredient(I.CINNAMON, 0.5, U.TEASPOONS),
+        Ingredient(I.CHIA_SEEDS, 10, U.GRAMS),
+        Ingredient(I.NUTS, 2, U.TABLESPOONS),
+        Ingredient(I.FRUIT, 0.5, U.CUPS)
+        ], servings=3,
            meal_type=MealType.BREAKFAST
            ),
+    Recipe('Black Bean Burger', [
+        Ingredient(I.OATS, 3, U.OUNCES),
+        Ingredient(I.WALNUTS, 2, U.OUNCES),
+        Ingredient(I.TURMERIC, 0.25, U.TEASPOONS),
+        Ingredient(I.ONIONS_RED, 4, U.OUNCES),
+        Ingredient(I.MUSHROOMS, 1, U.OUNCES),
+        Ingredient(I.BEANS_BLACK, 16, U.OUNCES),
+        Ingredient(I.BUTTER_ALMOND, 2, U.OUNCES),
+        Ingredient(I.FLAXSEEDS, 1, U.TABLESPOONS),
+        Ingredient(I.NUTRITIONAL_YEAST, 1, U.TABLESPOONS),
+        Ingredient(I.PARSLEY, 1, U.TABLESPOONS),
+        Ingredient(I.MISO, 2, U.TEASPOONS),
+        Ingredient(I.ONION_POWDER, 1, U.TEASPOONS),
+        Ingredient(I.GARLIC_POWDER, 0.5, U.TEASPOONS),
+        Ingredient(I.PAPRIKA, 0.5, U.TEASPOONS),
+        Ingredient(I.SAVORY_SPICE_BLEND, 1, U.TEASPOONS)
+    ],
+           servings=4,
+           meal_type=MealType.ENTREE
+           ),
+
     Recipe('No-Cook strawberry Oatmeal To-Go', [
         Ingredient(I.OATS, 33, U.GRAMS),
         Ingredient(I.CHIA_SEEDS, 10, U.GRAMS),
@@ -44,42 +97,58 @@ recipes = [
            servings=1,
            meal_type=MealType.BREAKFAST
            ),
-    Recipe('Creamy Buckwheat Porridge', [
-        Ingredient(I.BUCKWHEAT, 1, U.CUPS),
-        Ingredient(I.DATES, 2, U.UNITS),
-        Ingredient(I.MILK, 3, U.TABLESPOONS),
-        Ingredient(I.VANILLA_EXTRACT, 1, U.TEASPOONS),
-        Ingredient(I.CINNAMON, 0.5, U.TEASPOONS),
-        Ingredient(I.CHIA_SEEDS, 10, U.GRAMS),
-        Ingredient(I.NUTS, 2, U.TABLESPOONS),
-        Ingredient(I.FRUIT, 0.5, U.CUPS)
-    ],
-           servings=3,
-           meal_type=MealType.BREAKFAST
-           ),
-    Recipe('Quick Breakfast Quinoa', [
-        Ingredient(I.QUINOA, 1, U.CUPS),
-        Ingredient(I.WATER, 474, U.MILLILITRES),
-        Ingredient(I.APPLES, 1, U.UNITS),
-        Ingredient(I.NUTS, 67, U.GRAMS),
-        Ingredient(I.BERRIES, 115, U.GRAMS),
-        Ingredient(I.DATES, 62, U.GRAMS),
-        Ingredient(I.CINNAMON, 1, U.TEASPOONS),
-        Ingredient(I.MILK, 119, U.MILLILITRES)
+    Recipe('Chickpea & Vegetable Tagine', [
+        Ingredient(I.ONIONS_RED, 8, U.OUNCES),
+        Ingredient(I.CARROTS, 4, U.OUNCES),
+        Ingredient(I.PEPPERS_GREEN, 8, U.OUNCES),
+        Ingredient(I.GARLIC, 1, U.UNITS),
+        Ingredient(I.GINGER, 1.5, U.TEASPOONS),
+        Ingredient(I.TOMATO_PASTE, 2, U.TABLESPOONS),
+        Ingredient(I.CINNAMON, 0.25, U.TEASPOONS),
+        Ingredient(I.CUMIN, 0.5, U.TEASPOONS),
+        Ingredient(I.PAPRIKA, 0.5, U.TEASPOONS),
+        Ingredient(I.TURMERIC, 0.25, U.TEASPOONS),
+        Ingredient(I.CAYENNE_PAPPER, 0.25, U.TEASPOONS),
+        Ingredient(I.BROTH, 2, U.CUPS),
+        Ingredient(I.BEANS_GREEN, 5, U.OUNCES),
+        Ingredient(I.MUSHROOMS, 3, U.OUNCES),
+        Ingredient(I.CHICKPEAS, 16, U.OUNCES),
+        Ingredient(I.CILANTRO, 2, U.TABLESPOONS),
+        Ingredient(I.LEMONS_BLENDED, 2, U.TEASPOONS)
     ],
            servings=4,
-           meal_type=MealType.BREAKFAST
+           meal_type=MealType.ENTREE
            ),
-    Recipe('Chia Seed Breakfast Pudding', [
-        Ingredient(I.MILK, 119, U.MILLILITRES),
-        Ingredient(I.CHIA_SEEDS, 2, U.TABLESPOONS),
-        Ingredient(I.OATS, 2, U.TABLESPOONS),
-        Ingredient(I.BANANAS, 0.5, U.UNITS),
-        Ingredient(I.BERRIES, 0.5, U.CUPS)
+    Recipe('Yellow Rice & Black Beans with Broccoli', [
+        Ingredient(I.SHALLOTS, 1, U.UNITS),
+        Ingredient(I.GINGER, 1, U.TEASPOONS),
+        Ingredient(I.MISO, 2, U.TEASPOONS),
+        Ingredient(I.NUTRITIONAL_YEAST, 2, U.TABLESPOONS),
+        Ingredient(I.TURMERIC, 0.25, U.TEASPOONS),
+        Ingredient(I.CORIANDER_GROUND, 0.5, U.TEASPOONS),
+        Ingredient(I.CUMIN, 0.25, U.TEASPOONS),
+        Ingredient(I.CAYENNE_PEPPER, 0.25, U.TEASPOONS),
+        Ingredient(I.CAULIFLOWER_RICED, 16, U.OUNCES),
+        Ingredient(I.BROTH, 2, U.CUPS),
+        Ingredient(I.BROCCOLI, 18, U.OUNCES),
+        Ingredient(I.BEANS_BLACK, 16, U.OUNCES)
     ],
-           servings=1,
-           meal_type=MealType.BREAKFAST
+           servings=4,
+           meal_type=MealType.ENTREE
            ),
+
+    Recipe('Quick Breakfast Quinoa', [
+        Ingredient(I.QUINOA, 2, U.OUNCES),
+        Ingredient(I.WATER, 2, U.CUPS),
+        Ingredient(I.APPLES, 6, U.OUNCES),
+        Ingredient(I.NUTS, 2, U.OUNCES),
+        Ingredient(I.BERRIES, 115, U.GRAMS),
+        Ingredient(I.CINNAMON, 1, U.TEASPOONS),
+        Ingredient(I.MILK, 4, U.OUNCES)
+    ],
+       servings=4,
+       meal_type=MealType.BREAKFAST
+       ),
     Recipe('Quick Banana Walnut Breakfast', [
         Ingredient(I.BANANAS, 1, U.UNITS),
         Ingredient(I.MILK, 119, U.MILLILITRES),
@@ -88,13 +157,6 @@ recipes = [
         Ingredient(I.FLAXSEEDS, 0.5, U.TABLESPOONS)
     ],
            servings=1,
-           meal_type=MealType.BREAKFAST
-           ),
-    Recipe('Fruity Chickpea Cereal', [
-        Ingredient(I.CHICKPEAS, 1.5, U.CUPS),
-        Ingredient(I.BANANAS, 2, U.UNITS)
-    ],
-           servings=2,
            meal_type=MealType.BREAKFAST
            ),
     Recipe('Tofu Scramble with Tomatoes and Peppers', [
@@ -107,15 +169,6 @@ recipes = [
         Ingredient(I.GARLIC_POWDER, 1, U.TEASPOONS),
         Ingredient(I.TURMERIC, 0.5, U.TEASPOONS),
         Ingredient(I.RED_PEPPER_FLAKES, 0.25, U.TEASPOONS),
-    ],
-           servings=2,
-           meal_type=MealType.BREAKFAST
-           ),
-    Recipe('Creamy Breakfast Broccoli', [
-        Ingredient(I.BROCCOLI, 1, U.UNITS),
-        Ingredient(I.LEEKS, 1, U.UNITS),
-        Ingredient(I.AVOCADOS, 1, U.UNITS),
-        Ingredient(I.BLACK_PEPPER, 0.25, U.TEASPOONS)
     ],
            servings=2,
            meal_type=MealType.BREAKFAST

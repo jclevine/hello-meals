@@ -7,6 +7,7 @@ from src.hello_meals.meal_plan import MealPlan
 from src.ressie.ingredients import Ingredients as I
 from src.hello_meals.hello_meals import HelloMeals
 from src.pyllo.pyllo import Pyllo
+from test.hello_meals.mocks import mock_cookbook, mock_pyllo
 
 
 class TestMealPlan(TestCase):
@@ -20,8 +21,8 @@ class TestMealPlan(TestCase):
         self.assertEqual([expected_recipe], meal_plan.meals)
 
     @patch.object(Pyllo, 'get_labels')
-    def test_build_plan_returns_meal_tally(self, pyllo):
-        pyllo.return_value = {'Breakfast': '123456789'}
+    def test_build_plan_returns_meal_tally(self, pyllo_labels):
+        pyllo_labels.return_value = {'Breakfast': '123456789'}
         cookbook = Mock(spec=Cookbook)
         breakfast_1_recipe = Recipe(name='Yummy Breakfast!', ingredients=[I.STRAWBERRIES, I.ONION_POWDER],
                                     meal_type=MealType.BREAKFAST, servings=10)
@@ -41,8 +42,11 @@ class TestMealPlan(TestCase):
         meal_plan = MealPlan(name='Cool Plan, fsure', cookbook=cookbook, recipes=[
             'Yummy Lunch!', 'Delish Dinner Dish!', 'Delish Breakfast Dish!', 'Yummy Breakfast'])
 
-        hello_meals = HelloMeals(pyllo)
+        hello_meals = HelloMeals(pyllo_labels)
         actual = hello_meals.create_meal_plan(meal_plan, Mock())
+
+    def test_given_some_meals_when_asked_for_a_meal_plan_then_the_missing_meal_elements_percentage_is_given(self):
+        meal_plan = MealPlan(name='Best Plan Ever', cookbook=mock_cookbook, recipes=['Black Bean Burgers'])
 
 
 

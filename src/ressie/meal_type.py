@@ -9,4 +9,6 @@ class MealType(Enum):
     SIDES = 'Sides'
     SALAD = 'Salad'
     SALAD_DRESSING = 'Salad Dressing'
+    LUNCH = 'Lunch'
+    DINNER = 'Dinner'
 

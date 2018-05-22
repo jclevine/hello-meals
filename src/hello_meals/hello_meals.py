@@ -99,14 +99,14 @@ if __name__ == '__main__':
     pyllo = Pyllo(key='',
                   token='')
 
-    # tinyDbCookbook = TinyDBCookbook(os.path.join(os.getcwd(), 'cookbook.tinydb'))
-    # with tinyDbCookbook.open() as tinydb_cookbook:
-    #     cookbook = Cookbook(tinydb_cookbook)
-        # meal_plan = MealPlan('Weeee!', cookbook, [
-        #     'Blue Apple Nut Oatmeal', 'Cinnamon-Spiced Baked Oatmeal'
-        # ])
+    tinyDbCookbook = TinyDBCookbook(os.path.join(os.getcwd(), 'cookbook.tinydb'))
+    with tinyDbCookbook.open() as tinydb_cookbook:
+        cookbook = Cookbook(tinydb_cookbook)
+        meal_plan = MealPlan('Weeee!', cookbook, [
+            'Blue Apple Nut Oatmeal', 'Cinnamon-Spiced Baked Oatmeal'
+        ])
     hello_meals = HelloMeals(pyllo)
-    from src.hello_meals.meal_plans_andrea import meal_plan
-    a_meal_plan = MealPlan('BLE - Week 2 - Andrea', meal_plan, [])
-    a_meal_plan._meals = meal_plan['meals']
-    hello_meals.create_meal_plan(a_meal_plan, tqdm_log)
+    # from src.hello_meals.meal_plans_andrea import meal_plan
+    # a_meal_plan = MealPlan('BLE - Week 2 - Andrea', meal_plan, [])
+    # a_meal_plan._meals = meal_plan['meals']
+    hello_meals.create_meal_plan(meal_plan, tqdm_log)
